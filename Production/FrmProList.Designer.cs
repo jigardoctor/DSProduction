@@ -76,6 +76,7 @@ namespace Production
             this.website_bt = new MetroFramework.Controls.MetroButton();
             this.label2 = new MetroFramework.Controls.MetroLabel();
             this.metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel5.SuspendLayout();
@@ -87,6 +88,7 @@ namespace Production
             // metroPanel1
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.Controls.Add(this.metroButton3);
             this.metroPanel1.Controls.Add(this.update_bt);
             this.metroPanel1.Controls.Add(this.metroButton2);
             this.metroPanel1.Controls.Add(this.metroButton1);
@@ -641,6 +643,20 @@ namespace Production
             this.metroProgressBar1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroProgressBar1.TabIndex = 68;
             // 
+            // metroButton3
+            // 
+            this.metroButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton3.Location = new System.Drawing.Point(780, 25);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(89, 23);
+            this.metroButton3.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton3.TabIndex = 73;
+            this.metroButton3.Text = "Update Info";
+            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
             // FrmProList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,6 +733,7 @@ namespace Production
         private MetroFramework.Controls.MetroLabel label2;
         private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
         private MetroFramework.Controls.MetroButton update_bt;
+        private MetroFramework.Controls.MetroButton metroButton3;
     }
 }
 

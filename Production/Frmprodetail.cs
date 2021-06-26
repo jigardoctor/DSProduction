@@ -21,7 +21,8 @@ namespace Production
         {
             Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
             this.Icon = Icon.FromHandle(bm.GetHicon());
-
+            DateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
+            DateTimePicker1.MinDate = new DateTime(2021, 3, 31);
 
             bindprodata();
         }
@@ -44,7 +45,6 @@ namespace Production
                                 adp.Fill(ds);
                                 if (ds.Rows.Count == 1)
                                 {
-
                                     DateTimePicker1.Text = ds.Rows[0]["date"].ToString();
                                     shift_cb.Text = ds.Rows[0]["shift"].ToString();
                                     machine_cb.Text = ds.Rows[0]["machine"].ToString();

@@ -64,8 +64,19 @@ namespace Production
             ToolTip t = new ToolTip();
             t.SetToolTip(Export_bt, "Click here To Open Youtube Channel");
             t.SetToolTip(Export_bt, "Click here To Open WebSite Channel");
-            Loaddata();
+            Loaddata(); 
+            dateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
+            dateTimePicker1.MinDate = new DateTime(2021, 3, 31);
+            dateTimePicker2.MaxDate = new DateTime(2022, 3, 31);
+            dateTimePicker2.MinDate = new DateTime(2021, 3, 31);
             this.WindowState = FormWindowState.Maximized;
+       
+            if(Properties.Settings.Default.newupdateinfo != Properties.Settings.Default.oldupdateinfo)
+            {
+                FrmNewUpdate f2 = new FrmNewUpdate();
+                f2.metroTextBox1.Text = Properties.Settings.Default.newupdateinfo;
+                f2.ShowDialog();
+            }
         }
         private void Loaddata()
         {
@@ -538,16 +549,15 @@ namespace Production
                     {
                         using (DataTable ds = new DataTable())
                         {
-
                             adp.Fill(ds);
                             metroGrid1.DataSource = ds;
-                            if (metroGrid1.Rows.Count == 0)
-                            {
-                                MetroFramework.MetroMessageBox.Show(this, "Data Not found", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                metroTextBox1.Focus();
-                                Loaddata();
-                            }
-                            calculator();
+                            //if (metroGrid1.Rows.Count == 0)
+                            //{
+                            //   // MetroFramework.MetroMessageBox.Show(this, "Data Not found", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //    metroTextBox1.Focus();
+                            //    Loaddata();
+                            //}
+                            //calculator();
 
                         }
                     }
@@ -651,6 +661,12 @@ namespace Production
             metroProgressBar1.Visible = false;
             System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\DSProductionSetup.msi");
             Application.Exit();
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            FrmNewUpdate f2 = new FrmNewUpdate();
+            f2.ShowDialog();
         }
     }
 }

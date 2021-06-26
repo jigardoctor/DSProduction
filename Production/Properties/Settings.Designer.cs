@@ -22,5 +22,29 @@ namespace Production.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string newupdateinfo {
+            get {
+                return ((string)(this["newupdateinfo"]));
+            }
+            set {
+                this["newupdateinfo"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string oldupdateinfo {
+            get {
+                return ((string)(this["oldupdateinfo"]));
+            }
+            set {
+                this["oldupdateinfo"] = value;
+            }
+        }
     }
 }
