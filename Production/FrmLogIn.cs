@@ -59,8 +59,7 @@ namespace Production
             }
             catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message");
-
+                //MetroFramework.MetroMessageBox.Show(this, "Internet is not Conected for News And Update .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             finally
             {
@@ -106,41 +105,48 @@ namespace Production
         }
         private void newupdate()
         {
-            var csb = new MySqlConnectionStringBuilder
+            try
             {
-                Server = "34.122.12.194",
-                UserID = "test_remote",
-                Password = "Secure1234!",
-                Database = "companylist",
-                //SslCert = @"C:\Report\client-cert.pem",
-                //SslKey = @"C:\Report\client-key.pem",
-                //SslCa = @"C:\Report\server-ca.pem",
-                //SslMode = MySqlSslMode.VerifyCA,
-            };
-            using (MySqlConnection con = new MySqlConnection(csb.ConnectionString))
-            {
-                string savedetail = "SELECT * FROM `dsproduction`  ";
-                using (MySqlCommand MyCommand2 = new MySqlCommand(savedetail, con))
+                var csb = new MySqlConnectionStringBuilder
                 {
-                    MyCommand2.CommandType = CommandType.Text;
-                    using (MySqlDataAdapter adp = new MySqlDataAdapter(MyCommand2))
+                    Server = "34.122.12.194",
+                    UserID = "test_remote",
+                    Password = "Secure1234!",
+                    Database = "companylist",
+                    //SslCert = @"C:\Report\client-cert.pem",
+                    //SslKey = @"C:\Report\client-key.pem",
+                    //SslCa = @"C:\Report\server-ca.pem",
+                    //SslMode = MySqlSslMode.VerifyCA,
+                };
+                using (MySqlConnection con = new MySqlConnection(csb.ConnectionString))
+                {
+                    string savedetail = "SELECT * FROM `dsproduction`  ";
+                    using (MySqlCommand MyCommand2 = new MySqlCommand(savedetail, con))
                     {
-                        using (DataTable ds = new DataTable())
+                        MyCommand2.CommandType = CommandType.Text;
+                        using (MySqlDataAdapter adp = new MySqlDataAdapter(MyCommand2))
                         {
-                            con.Open();
-                            adp.Fill(ds);
-                            if (con.State == ConnectionState.Open)
+                            using (DataTable ds = new DataTable())
                             {
-                                if (ds.Rows[0]["newupdateinfo"].ToString() !="")
+                                con.Open();
+                                adp.Fill(ds);
+                                if (con.State == ConnectionState.Open)
                                 {
-                                    Properties.Settings.Default.newupdateinfo = ds.Rows[0]["newupdateinfo"].ToString();
-                                    Properties.Settings.Default.Save();
-                                
+                                    if (ds.Rows[0]["newupdateinfo"].ToString() != "")
+                                    {
+                                        Properties.Settings.Default.newupdateinfo = ds.Rows[0]["newupdateinfo"].ToString();
+                                        Properties.Settings.Default.Save();
+
+                                    }
                                 }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception)
+            {
+               // MetroFramework.MetroMessageBox.Show(this, "Internet is not Conected for News And Update .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void FrmLogIn_Load(object sender, EventArgs e)

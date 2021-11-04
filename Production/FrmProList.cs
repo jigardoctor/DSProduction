@@ -23,9 +23,6 @@ namespace Production
         private DataTable sqlDT = new DataTable();
         private DataSet DS = new DataSet();
         private SQLiteDataAdapter DB;
-
-
-
         private void ExecuteQuery(string query)
         {
 
