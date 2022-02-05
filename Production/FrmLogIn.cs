@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -80,9 +81,30 @@ namespace Production
             //    MetroFramework.MetroMessageBox.Show(this, "Software is Upto Date", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
         }
+        string drive = "D:\\";
+        private void checkdrive()
+        {
+            try
+            {
+
+
+                metroProgressBar1.Value = 0;
+
+                if (!Directory.Exists(drive))
+                {
+                    drive = "E:\\";
+                }
+
+            }
+            catch (IOException ioex)
+            {
+                Console.WriteLine(ioex.Message);
+            }
+        }
         private async void down()
         {
-            using (System.IO.FileStream fs = System.IO.File.Create("\\DSProductionSetup.msi")) ;
+            checkdrive();
+            using (System.IO.FileStream fs = System.IO.File.Create(drive+"DSProductionSetup.msi")) ;
             metroProgressBar1.Visible = true;
             WebClient webClient = new WebClient();
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
@@ -99,8 +121,9 @@ namespace Production
         {
             this.Enabled = true;
             MetroFramework.MetroMessageBox.Show(this, "Download Successfull . !", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            metroProgressBar1.Visible = false;
-            System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\DSProductionSetup.msi");
+            metroProgressBar1.Visible = false; 
+            System.Diagnostics.Process.Start(drive);
+            System.Diagnostics.Process.Start(drive + "DSProductionSetup.msi");
             Application.Exit();
         }
         private void newupdate()
@@ -193,7 +216,7 @@ namespace Production
                 else
                 {
                     timer1.Stop();
-                    FrmProList f2 = new FrmProList();
+                   FrmProList f2 = new FrmProList();
                     f2.Show();
                     this.Hide();
                 }

@@ -51,21 +51,42 @@ namespace Production
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            metroComboBox1.Text = "operator";
+            if (Properties.Settings.Default.web == "1")
+            {
+                Process.Start("https://www.youtube.com/watch?v=y42-42xOUcE&list=PLUEc1Fx_1bPe1ddwDF799WKCmrMeCdgFo&index=5");
+                Process.Start("https://www.shubhamdigital.tk"); 
+                Properties.Settings.Default.web = "2";
+                Properties.Settings.Default.Save();
+            }
+            //else if(Properties.Settings.Default.web == "2")
+            //{
+            //    Process.Start("https://www.shubhamdigital.tk");
+            //    Properties.Settings.Default.web = "3";
+            //    Properties.Settings.Default.Save();
+            //}
+            //else if (Properties.Settings.Default.web == "3")
+            //{
+            //    Process.Start("https://www.youtube.com/watch?v=9sBRr_Dh9SE&list=PLUEc1Fx_1bPe1ddwDF799WKCmrMeCdgFo&index=6");
+            //    Properties.Settings.Default.web = "1";
+            //    Properties.Settings.Default.Save();
+            //}
+
+
+            metroComboBox1.SelectedIndex = 1;
             Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
             this.Icon = Icon.FromHandle(bm.GetHicon());
-
+          
             ToolTip t = new ToolTip();
             t.SetToolTip(Export_bt, "Click here To Open Youtube Channel");
             t.SetToolTip(Export_bt, "Click here To Open WebSite Channel");
             Loaddata(); 
-            dateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
-            dateTimePicker1.MinDate = new DateTime(2021, 3, 31);
-            dateTimePicker2.MaxDate = new DateTime(2022, 3, 31);
-            dateTimePicker2.MinDate = new DateTime(2021, 3, 31);
+           // dateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
+           // dateTimePicker1.MinDate = new DateTime(2021, 3, 31);
+           // dateTimePicker2.MaxDate = new DateTime(2022, 3, 31);
+           // dateTimePicker2.MinDate = new DateTime(2021, 3, 31);
             this.WindowState = FormWindowState.Maximized;
        
             if(Properties.Settings.Default.newupdateinfo != Properties.Settings.Default.oldupdateinfo)
@@ -367,7 +388,7 @@ namespace Production
 
         private void Export_bt_Click(object sender, EventArgs e)
         {
-            Process.Start("https://youtu.be/2kaqygK-Krw");
+            Process.Start("https://www.youtube.com/watch?v=y42-42xOUcE&list=PLUEc1Fx_1bPe1ddwDF799WKCmrMeCdgFo&index=5");
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -636,19 +657,40 @@ namespace Production
                 MetroFramework.MetroMessageBox.Show(this, "Software is Upto Date", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        string drive="D:\\";
+        private void checkdrive()
+        {
+            try
+            {
+
+
+                metroProgressBar1.Value = 0;
+
+                if (!Directory.Exists(drive))
+                {
+                    drive = "E:\\";
+                }
+                
+            }
+            catch (IOException ioex)
+            {
+                Console.WriteLine(ioex.Message);
+            }
+        }
         private async void down()
         {
-            using (System.IO.FileStream fs = System.IO.File.Create("\\DSProductionSetup.msi")) ;
+            checkdrive();
+            using (System.IO.FileStream fs = System.IO.File.Create(drive+"DSProductionSetup.msi")) ;
             metroProgressBar1.Visible = true;
             WebClient webClient = new WebClient();
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-            webClient.DownloadFileAsync(new Uri("https://www.shubhamdigital.tk/Publish/DSProduction/DSProductionSetup.msi"), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\DSProductionSetup.msi");
+            webClient.DownloadFileAsync(new Uri("https://www.shubhamdigital.tk/Publish/DSProduction/DSProductionSetup.msi"), drive + "\\DSProductionSetup.msi");
         }
         void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             this.Enabled = false;
-            label2.Text = e.ProgressPercentage.ToString() + " %";
+            label2.Text ="Downloading "+ e.ProgressPercentage.ToString() + " %";
             metroProgressBar1.Value = e.ProgressPercentage;
         }
         void Completed(object sender, AsyncCompletedEventArgs e)
@@ -656,7 +698,8 @@ namespace Production
             this.Enabled = true;
             MetroFramework.MetroMessageBox.Show(this, "Download Successfull . !", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             metroProgressBar1.Visible = false;
-            System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\DSProductionSetup.msi");
+            System.Diagnostics.Process.Start(drive);
+            System.Diagnostics.Process.Start(drive + "DSProductionSetup.msi");
             Application.Exit();
         }
 
@@ -665,5 +708,7 @@ namespace Production
             FrmNewUpdate f2 = new FrmNewUpdate();
             f2.ShowDialog();
         }
+
+       
     }
 }

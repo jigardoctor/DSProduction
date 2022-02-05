@@ -34,6 +34,7 @@ namespace Production
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.update_bt = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
@@ -72,11 +73,10 @@ namespace Production
             this.toolStripStatusLabel10 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel12 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel13 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Export_bt = new MetroFramework.Controls.MetroButton();
-            this.website_bt = new MetroFramework.Controls.MetroButton();
             this.label2 = new MetroFramework.Controls.MetroLabel();
             this.metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.website_bt = new MetroFramework.Controls.MetroButton();
+            this.Export_bt = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel5.SuspendLayout();
@@ -110,6 +110,20 @@ namespace Production
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton3.Location = new System.Drawing.Point(780, 25);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(89, 23);
+            this.metroButton3.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton3.TabIndex = 73;
+            this.metroButton3.Text = "Update Info";
+            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // update_bt
             // 
@@ -156,9 +170,9 @@ namespace Production
             // edit_bt
             // 
             this.edit_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.edit_bt.Location = new System.Drawing.Point(706, 83);
+            this.edit_bt.Location = new System.Drawing.Point(682, 83);
             this.edit_bt.Name = "edit_bt";
-            this.edit_bt.Size = new System.Drawing.Size(75, 23);
+            this.edit_bt.Size = new System.Drawing.Size(63, 23);
             this.edit_bt.Style = MetroFramework.MetroColorStyle.Red;
             this.edit_bt.TabIndex = 5;
             this.edit_bt.Text = "Edit";
@@ -322,9 +336,9 @@ namespace Production
             // new_bt
             // 
             this.new_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.new_bt.Location = new System.Drawing.Point(625, 83);
+            this.new_bt.Location = new System.Drawing.Point(612, 83);
             this.new_bt.Name = "new_bt";
-            this.new_bt.Size = new System.Drawing.Size(75, 23);
+            this.new_bt.Size = new System.Drawing.Size(63, 23);
             this.new_bt.Style = MetroFramework.MetroColorStyle.Red;
             this.new_bt.TabIndex = 4;
             this.new_bt.Text = "Add New";
@@ -336,7 +350,7 @@ namespace Production
             this.find_bt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.find_bt.Location = new System.Drawing.Point(454, 83);
             this.find_bt.Name = "find_bt";
-            this.find_bt.Size = new System.Drawing.Size(75, 23);
+            this.find_bt.Size = new System.Drawing.Size(63, 23);
             this.find_bt.Style = MetroFramework.MetroColorStyle.Red;
             this.find_bt.TabIndex = 2;
             this.find_bt.Text = "Find";
@@ -346,7 +360,7 @@ namespace Production
             // clear_bt
             // 
             this.clear_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clear_bt.Location = new System.Drawing.Point(536, 83);
+            this.clear_bt.Location = new System.Drawing.Point(523, 83);
             this.clear_bt.Name = "clear_bt";
             this.clear_bt.Size = new System.Drawing.Size(83, 23);
             this.clear_bt.Style = MetroFramework.MetroColorStyle.Red;
@@ -599,30 +613,6 @@ namespace Production
             this.toolStripStatusLabel13.Size = new System.Drawing.Size(17, 20);
             this.toolStripStatusLabel13.Text = "0";
             // 
-            // Export_bt
-            // 
-            this.Export_bt.BackgroundImage = global::Production.Properties.Resources.YouTube_icon__2013_2017_;
-            this.Export_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Export_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Export_bt.Location = new System.Drawing.Point(190, 22);
-            this.Export_bt.Name = "Export_bt";
-            this.Export_bt.Size = new System.Drawing.Size(56, 32);
-            this.Export_bt.TabIndex = 1;
-            this.Export_bt.UseSelectable = true;
-            this.Export_bt.Click += new System.EventHandler(this.Export_bt_Click);
-            // 
-            // website_bt
-            // 
-            this.website_bt.BackgroundImage = global::Production.Properties.Resources.administrator_icon;
-            this.website_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.website_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.website_bt.Location = new System.Drawing.Point(252, 22);
-            this.website_bt.Name = "website_bt";
-            this.website_bt.Size = new System.Drawing.Size(40, 32);
-            this.website_bt.TabIndex = 2;
-            this.website_bt.UseSelectable = true;
-            this.website_bt.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -643,19 +633,29 @@ namespace Production
             this.metroProgressBar1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroProgressBar1.TabIndex = 68;
             // 
-            // metroButton3
+            // website_bt
             // 
-            this.metroButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroButton3.Location = new System.Drawing.Point(780, 25);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(89, 23);
-            this.metroButton3.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton3.TabIndex = 73;
-            this.metroButton3.Text = "Update Info";
-            this.metroButton3.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton3.UseSelectable = true;
-            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            this.website_bt.BackgroundImage = global::Production.Properties.Resources.administrator_icon;
+            this.website_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.website_bt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.website_bt.Location = new System.Drawing.Point(252, 22);
+            this.website_bt.Name = "website_bt";
+            this.website_bt.Size = new System.Drawing.Size(40, 32);
+            this.website_bt.TabIndex = 2;
+            this.website_bt.UseSelectable = true;
+            this.website_bt.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
+            // Export_bt
+            // 
+            this.Export_bt.BackgroundImage = global::Production.Properties.Resources.YouTube_icon__2013_2017_;
+            this.Export_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Export_bt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Export_bt.Location = new System.Drawing.Point(190, 22);
+            this.Export_bt.Name = "Export_bt";
+            this.Export_bt.Size = new System.Drawing.Size(56, 32);
+            this.Export_bt.TabIndex = 1;
+            this.Export_bt.UseSelectable = true;
+            this.Export_bt.Click += new System.EventHandler(this.Export_bt_Click);
             // 
             // FrmProList
             // 

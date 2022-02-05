@@ -21,8 +21,8 @@ namespace Production
         {
             Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
             this.Icon = Icon.FromHandle(bm.GetHicon());
-            DateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
-            DateTimePicker1.MinDate = new DateTime(2021, 3, 31);
+           // DateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
+           // DateTimePicker1.MinDate = new DateTime(2021, 3, 31);
 
             bindprodata();
         }
@@ -79,83 +79,88 @@ namespace Production
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            Double TOTAL = 0;
-            if (total_tx.Text == "" || Convert.ToDouble(total_tx.Text) == 0)
+            try
             {
                 
-                TOTAL = Convert.ToDouble(pagar_tx.Text) + Convert.ToDouble(bonus_tx.Text);
-                total_tx.Text = TOTAL.ToString();
-            }
-            if (stiches_tx.Text == "")
-            {
-                stiches_tx.Text = "0";
-            }
-            if (frame_tx.Text == "")
-            {
-                frame_tx.Text = "0";
-            }
-            if (tb_tx.Text == "")
-            {
-                tb_tx.Text = "0";
-            }
-            if (pagar_tx.Text == "")
-            {
-                pagar_tx.Text = "0";
-            }
-            if (hajri_tx.Text == "")
-            {
-                hajri_tx.Text = "0";
-            }
-            if (bonus_tx.Text == "")
-            {
-                bonus_tx.Text = "0";
-            }
-            TOTAL = Convert.ToDouble(pagar_tx.Text) + Convert.ToDouble(bonus_tx.Text);
-            total_tx.Text = TOTAL.ToString();
-            if (operator_cb.Text != "")
-            {
-                if (machine_cb.Text != "")
+                if (stiches_tx.Text == "")
                 {
-                    if (designno_cb.Text != "")
-                    {
-                        if (double.Parse(hajri_tx.Text) > 0)
-                        {
-                            if (int.Parse(stiches_tx.Text) > 0)
-                            {
+                    stiches_tx.Text = "0";
+                }
+                if (frame_tx.Text == "")
+                {
+                    frame_tx.Text = "0";
+                }
+                if (tb_tx.Text == "")
+                {
+                    tb_tx.Text = "0";
+                }
+                if (pagar_tx.Text == "")
+                {
+                    pagar_tx.Text = "0";
+                }
+                if (hajri_tx.Text == "")
+                {
+                    hajri_tx.Text = "0";
+                }
+                if (bonus_tx.Text == "")
+                {
+                    bonus_tx.Text = "0";
+                }
 
-                                updatdata();
-                              
+                if (operator_cb.Text != "")
+                {
+                    if (machine_cb.Text != "")
+                    {
+                        if (designno_cb.Text != "")
+                        {
+                            if (double.Parse(hajri_tx.Text) > 0)
+                            {
+                                if (int.Parse(stiches_tx.Text) > 0)
+                                {
+                                    double TOTAL = 0;
+                                   
+                                    TOTAL = Convert.ToDouble(pagar_tx.Text) + Convert.ToDouble(bonus_tx.Text);
+                                    total_tx.Text = TOTAL.ToString();
+                                    updatdata();
+
+                                }
+                                else
+                                {
+                                    MetroFramework.MetroMessageBox.Show(this, "Please Enter stiches..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    stiches_tx.Focus();
+                                }
                             }
                             else
                             {
-                                MetroFramework.MetroMessageBox.Show(this, "Please Enter stiches..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                stiches_tx.Focus();
+                                MetroFramework.MetroMessageBox.Show(this, "Please Enter hajri..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                hajri_tx.Focus();
                             }
                         }
                         else
                         {
-                            MetroFramework.MetroMessageBox.Show(this, "Please Enter hajri..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            hajri_tx.Focus();
+                            MetroFramework.MetroMessageBox.Show(this, "Please Enter Design No..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            designno_cb.Focus();
                         }
                     }
                     else
                     {
-                        MetroFramework.MetroMessageBox.Show(this, "Please Enter Design No..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        designno_cb.Focus();
+                        MetroFramework.MetroMessageBox.Show(this, "Please Enter machine..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        machine_cb.Focus();
                     }
+
                 }
                 else
                 {
-                    MetroFramework.MetroMessageBox.Show(this, "Please Enter machine..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    machine_cb.Focus();
+                    MetroFramework.MetroMessageBox.Show(this, "Please Enter operator..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    operator_cb.Focus();
                 }
-
             }
-            else
+            catch (Exception)
             {
-                MetroFramework.MetroMessageBox.Show(this, "Please Enter operator..", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                operator_cb.Focus();
+
+                throw;
             }
+            
         }
         private void updatdata()
         {
@@ -195,7 +200,6 @@ namespace Production
                         cmd.Parameters.AddWithValue("@remark", remark_tx.Text);
                         //con.Open();
                         cmd.ExecuteNonQuery();
-                        
                         sqlconn.Close();
                         this.Close();
                     }     

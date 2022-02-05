@@ -71,7 +71,7 @@ namespace Production
             // idproductionlist_tx
             // 
             this.idproductionlist_tx.Enabled = false;
-            this.idproductionlist_tx.Location = new System.Drawing.Point(215, 30);
+            this.idproductionlist_tx.Location = new System.Drawing.Point(429, 76);
             this.idproductionlist_tx.Name = "idproductionlist_tx";
             this.idproductionlist_tx.Size = new System.Drawing.Size(55, 20);
             this.idproductionlist_tx.TabIndex = 67;
@@ -81,6 +81,7 @@ namespace Production
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.metroPanel1.Controls.Add(this.statusStrip1);
+            this.metroPanel1.Controls.Add(this.idproductionlist_tx);
             this.metroPanel1.Controls.Add(this.metroPanel2);
             this.metroPanel1.Controls.Add(this.save_bt);
             this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -687,7 +688,7 @@ namespace Production
             // 
             // save_bt
             // 
-            this.save_bt.Location = new System.Drawing.Point(409, 50);
+            this.save_bt.Location = new System.Drawing.Point(409, 46);
             this.save_bt.Name = "save_bt";
             this.save_bt.Size = new System.Drawing.Size(75, 23);
             this.save_bt.Style = MetroFramework.MetroColorStyle.Red;
@@ -732,7 +733,6 @@ namespace Production
             this.Controls.Add(this.metroLabel18);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.idproductionlist_tx);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
