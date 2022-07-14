@@ -45,6 +45,7 @@ namespace Production
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroTile1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -199,7 +200,7 @@ namespace Production
             // metroDateTime1
             // 
             this.metroDateTime1.Location = new System.Drawing.Point(85, 297);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(117, 29);
             this.metroDateTime1.TabIndex = 66;
@@ -209,18 +210,33 @@ namespace Production
             // metroDateTime2
             // 
             this.metroDateTime2.Location = new System.Drawing.Point(85, 262);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime2.MinimumSize = new System.Drawing.Size(4, 29);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(117, 29);
             this.metroDateTime2.TabIndex = 67;
             this.metroDateTime2.UseStyleColors = true;
             this.metroDateTime2.Visible = false;
             // 
+            // metroButton2
+            // 
+            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton2.Location = new System.Drawing.Point(60, 435);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(65, 23);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton2.TabIndex = 73;
+            this.metroButton2.Text = "Close";
+            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
             // FrmLogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 500);
+            this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroLabel7);
@@ -234,7 +250,11 @@ namespace Production
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.metroDateTime2);
             this.Controls.Add(this.metroDateTime1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Movable = false;
             this.Name = "FrmLogIn";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "FrmLogIn";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -263,5 +283,6 @@ namespace Production
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private MetroFramework.Controls.MetroDateTime metroDateTime2;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -86,10 +87,7 @@ namespace Production
         {
             try
             {
-
-
                 metroProgressBar1.Value = 0;
-
                 if (!Directory.Exists(drive))
                 {
                     drive = "E:\\";
@@ -176,7 +174,7 @@ namespace Production
         {
             newupdate();
             checkupdate();
-            metroDateTime1.Value = new DateTime(2022,3,31);
+           // metroDateTime1.Value = new DateTime(2022,3,31);
             Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
             this.Icon = Icon.FromHandle(bm.GetHicon());
             //if(metroDateTime2.Value <= metroDateTime1.Value) 
@@ -205,6 +203,8 @@ namespace Production
                 MetroFramework.MetroMessageBox.Show(this,  "Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private SQLiteConnection sqlconn = new SQLiteConnection("Data Source=" + Application.StartupPath.ToString() + "\\Database1.db;version=3");
+
         private void timer_tick(object sender, EventArgs e)
         {
             try
@@ -216,20 +216,48 @@ namespace Production
                 else
                 {
                     timer1.Stop();
-                   FrmProList f2 = new FrmProList();
-                    f2.Show();
-                    this.Hide();
+                    //string savedetail = "SELECT * FROM HostName where CompanyName = '"+Properties.Settings.Default.CompanyName+"'";
+                    //using (SQLiteCommand MyCommand2 = new SQLiteCommand(savedetail, sqlconn))
+                    //{
+                    //    MyCommand2.CommandType = CommandType.Text;
+                    //    using (SQLiteDataAdapter adp = new SQLiteDataAdapter(MyCommand2))
+                    //    {
+                    //        using (DataTable ds = new DataTable())
+                    //        {
+
+                    //            adp.Fill(ds);
+                    //            if (ds.Rows.Count == 1)
+                    //            {
+                                    FrmProList f2 = new FrmProList();
+                                    f2.Show();
+                                    this.Hide();
+                        //        }
+                        //        else
+                        //        {
+                        //            ActivationFrm f2 = new ActivationFrm();
+                        //            f2.Show();
+                        //            this.Hide();
+                        //        }
+                        //    }
+                        //}
+                    //}
+
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MetroFramework.MetroMessageBox.Show(this, "Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MetroFramework.MetroMessageBox.Show(this, ex.Message , "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void htmlLabel1_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.shubhamdigital.tk");
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

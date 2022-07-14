@@ -74,9 +74,9 @@ namespace Production.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ActivationKey {
+        public string ActivationKey {
             get {
-                return ((int)(this["ActivationKey"]));
+                return ((string)(this["ActivationKey"]));
             }
             set {
                 this["ActivationKey"] = value;
@@ -104,6 +104,18 @@ namespace Production.Properties {
             }
             set {
                 this["web"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string PhNo {
+            get {
+                return ((string)(this["PhNo"]));
+            }
+            set {
+                this["PhNo"] = value;
             }
         }
     }

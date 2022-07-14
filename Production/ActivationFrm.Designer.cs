@@ -43,6 +43,8 @@ namespace Production
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.company_tx = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.phno_tx = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroTile1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +56,7 @@ namespace Production
             // 
             // 
             this.system_code.CustomButton.Image = null;
-            this.system_code.CustomButton.Location = new System.Drawing.Point(205, 1);
+            this.system_code.CustomButton.Location = new System.Drawing.Point(173, 1);
             this.system_code.CustomButton.Name = "";
             this.system_code.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.system_code.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -64,7 +66,7 @@ namespace Production
             this.system_code.CustomButton.Visible = false;
             this.system_code.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.system_code.Lines = new string[0];
-            this.system_code.Location = new System.Drawing.Point(25, 341);
+            this.system_code.Location = new System.Drawing.Point(45, 288);
             this.system_code.MaxLength = 32767;
             this.system_code.Name = "system_code";
             this.system_code.PasswordChar = '\0';
@@ -74,7 +76,7 @@ namespace Production
             this.system_code.SelectionLength = 0;
             this.system_code.SelectionStart = 0;
             this.system_code.ShortcutsEnabled = true;
-            this.system_code.Size = new System.Drawing.Size(227, 23);
+            this.system_code.Size = new System.Drawing.Size(195, 23);
             this.system_code.Style = MetroFramework.MetroColorStyle.Red;
             this.system_code.TabIndex = 1;
             this.system_code.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -85,7 +87,7 @@ namespace Production
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(87, 319);
+            this.metroLabel2.Location = new System.Drawing.Point(98, 266);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(86, 19);
             this.metroLabel2.Style = MetroFramework.MetroColorStyle.Red;
@@ -100,7 +102,7 @@ namespace Production
             // 
             // 
             this.key_tx.CustomButton.Image = null;
-            this.key_tx.CustomButton.Location = new System.Drawing.Point(205, 1);
+            this.key_tx.CustomButton.Location = new System.Drawing.Point(173, 1);
             this.key_tx.CustomButton.Name = "";
             this.key_tx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.key_tx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -110,7 +112,7 @@ namespace Production
             this.key_tx.CustomButton.Visible = false;
             this.key_tx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.key_tx.Lines = new string[0];
-            this.key_tx.Location = new System.Drawing.Point(25, 393);
+            this.key_tx.Location = new System.Drawing.Point(45, 340);
             this.key_tx.MaxLength = 32767;
             this.key_tx.Name = "key_tx";
             this.key_tx.PasswordChar = 'x';
@@ -119,7 +121,7 @@ namespace Production
             this.key_tx.SelectionLength = 0;
             this.key_tx.SelectionStart = 0;
             this.key_tx.ShortcutsEnabled = true;
-            this.key_tx.Size = new System.Drawing.Size(227, 23);
+            this.key_tx.Size = new System.Drawing.Size(195, 23);
             this.key_tx.Style = MetroFramework.MetroColorStyle.Red;
             this.key_tx.TabIndex = 2;
             this.key_tx.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -130,7 +132,7 @@ namespace Production
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(87, 371);
+            this.metroLabel1.Location = new System.Drawing.Point(96, 318);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(90, 19);
             this.metroLabel1.Style = MetroFramework.MetroColorStyle.Red;
@@ -141,7 +143,7 @@ namespace Production
             // Submit_bt
             // 
             this.Submit_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Submit_bt.Location = new System.Drawing.Point(87, 422);
+            this.Submit_bt.Location = new System.Drawing.Point(55, 422);
             this.Submit_bt.Name = "Submit_bt";
             this.Submit_bt.Size = new System.Drawing.Size(75, 23);
             this.Submit_bt.Style = MetroFramework.MetroColorStyle.Red;
@@ -154,7 +156,7 @@ namespace Production
             // cancel_bt
             // 
             this.cancel_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancel_bt.Location = new System.Drawing.Point(177, 422);
+            this.cancel_bt.Location = new System.Drawing.Point(145, 422);
             this.cancel_bt.Name = "cancel_bt";
             this.cancel_bt.Size = new System.Drawing.Size(75, 23);
             this.cancel_bt.Style = MetroFramework.MetroColorStyle.Red;
@@ -167,9 +169,9 @@ namespace Production
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Production.Properties.Resources.administrator_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 108);
+            this.pictureBox1.Location = new System.Drawing.Point(81, 108);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(161, 147);
+            this.pictureBox1.Size = new System.Drawing.Size(121, 105);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 52;
             this.pictureBox1.TabStop = false;
@@ -250,7 +252,7 @@ namespace Production
             // 
             // 
             this.company_tx.CustomButton.Image = null;
-            this.company_tx.CustomButton.Location = new System.Drawing.Point(205, 1);
+            this.company_tx.CustomButton.Location = new System.Drawing.Point(173, 1);
             this.company_tx.CustomButton.Name = "";
             this.company_tx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.company_tx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -260,7 +262,7 @@ namespace Production
             this.company_tx.CustomButton.Visible = false;
             this.company_tx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.company_tx.Lines = new string[0];
-            this.company_tx.Location = new System.Drawing.Point(25, 293);
+            this.company_tx.Location = new System.Drawing.Point(45, 240);
             this.company_tx.MaxLength = 32767;
             this.company_tx.Name = "company_tx";
             this.company_tx.PasswordChar = '\0';
@@ -269,7 +271,7 @@ namespace Production
             this.company_tx.SelectionLength = 0;
             this.company_tx.SelectionStart = 0;
             this.company_tx.ShortcutsEnabled = true;
-            this.company_tx.Size = new System.Drawing.Size(227, 23);
+            this.company_tx.Size = new System.Drawing.Size(195, 23);
             this.company_tx.Style = MetroFramework.MetroColorStyle.Red;
             this.company_tx.TabIndex = 0;
             this.company_tx.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -280,7 +282,7 @@ namespace Production
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(87, 271);
+            this.metroLabel3.Location = new System.Drawing.Point(88, 218);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(106, 19);
             this.metroLabel3.Style = MetroFramework.MetroColorStyle.Red;
@@ -288,11 +290,58 @@ namespace Production
             this.metroLabel3.Text = "Company Name";
             this.metroLabel3.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
+            // phno_tx
+            // 
+            this.phno_tx.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            // 
+            // 
+            // 
+            this.phno_tx.CustomButton.Image = null;
+            this.phno_tx.CustomButton.Location = new System.Drawing.Point(173, 1);
+            this.phno_tx.CustomButton.Name = "";
+            this.phno_tx.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.phno_tx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.phno_tx.CustomButton.TabIndex = 1;
+            this.phno_tx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.phno_tx.CustomButton.UseSelectable = true;
+            this.phno_tx.CustomButton.Visible = false;
+            this.phno_tx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.phno_tx.Lines = new string[0];
+            this.phno_tx.Location = new System.Drawing.Point(43, 391);
+            this.phno_tx.MaxLength = 32767;
+            this.phno_tx.Name = "phno_tx";
+            this.phno_tx.PasswordChar = 'x';
+            this.phno_tx.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.phno_tx.SelectedText = "";
+            this.phno_tx.SelectionLength = 0;
+            this.phno_tx.SelectionStart = 0;
+            this.phno_tx.ShortcutsEnabled = true;
+            this.phno_tx.Size = new System.Drawing.Size(195, 23);
+            this.phno_tx.Style = MetroFramework.MetroColorStyle.Red;
+            this.phno_tx.TabIndex = 72;
+            this.phno_tx.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.phno_tx.UseSelectable = true;
+            this.phno_tx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.phno_tx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(107, 369);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(68, 19);
+            this.metroLabel5.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroLabel5.TabIndex = 73;
+            this.metroLabel5.Text = "Phone No";
+            this.metroLabel5.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
             // ActivationFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 517);
+            this.Controls.Add(this.phno_tx);
+            this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.company_tx);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroTile1);
@@ -335,5 +384,7 @@ namespace Production
         private MetroFramework.Controls.MetroLabel metroLabel4;
         public MetroFramework.Controls.MetroTextBox company_tx;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        public MetroFramework.Controls.MetroTextBox phno_tx;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
     }
 }

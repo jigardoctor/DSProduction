@@ -30,13 +30,13 @@ namespace Production
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProList));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.update_bt = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.edit_bt = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
@@ -49,9 +49,9 @@ namespace Production
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.new_bt = new MetroFramework.Controls.MetroButton();
             this.find_bt = new MetroFramework.Controls.MetroButton();
             this.clear_bt = new MetroFramework.Controls.MetroButton();
+            this.new_bt = new MetroFramework.Controls.MetroButton();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
             this.metroContextMenu1 = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,8 +75,13 @@ namespace Production
             this.toolStripStatusLabel13 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label2 = new MetroFramework.Controls.MetroLabel();
             this.metroProgressBar1 = new MetroFramework.Controls.MetroProgressBar();
+            this.export_tx = new MetroFramework.Controls.MetroButton();
             this.website_bt = new MetroFramework.Controls.MetroButton();
-            this.Export_bt = new MetroFramework.Controls.MetroButton();
+            this.youtube_bt = new MetroFramework.Controls.MetroButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel5.SuspendLayout();
@@ -96,8 +101,6 @@ namespace Production
             this.metroPanel1.Controls.Add(this.metroPanel2);
             this.metroPanel1.Controls.Add(this.metroPanel5);
             this.metroPanel1.Controls.Add(this.new_bt);
-            this.metroPanel1.Controls.Add(this.find_bt);
-            this.metroPanel1.Controls.Add(this.clear_bt);
             this.metroPanel1.Controls.Add(this.metroGrid1);
             this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -138,20 +141,6 @@ namespace Production
             this.update_bt.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.update_bt.UseSelectable = true;
             this.update_bt.Click += new System.EventHandler(this.update_bt_Click);
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroButton2.Location = new System.Drawing.Point(875, 83);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(89, 23);
-            this.metroButton2.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton2.TabIndex = 72;
-            this.metroButton2.Text = "Restore";
-            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroButton2.UseSelectable = true;
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroButton1
             // 
@@ -250,12 +239,14 @@ namespace Production
             this.metroPanel5.Controls.Add(this.metroLabel3);
             this.metroPanel5.Controls.Add(this.metroTextBox1);
             this.metroPanel5.Controls.Add(this.metroLabel2);
+            this.metroPanel5.Controls.Add(this.find_bt);
+            this.metroPanel5.Controls.Add(this.clear_bt);
             this.metroPanel5.HorizontalScrollbarBarColor = true;
             this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel5.HorizontalScrollbarSize = 10;
             this.metroPanel5.Location = new System.Drawing.Point(12, 66);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(436, 58);
+            this.metroPanel5.Size = new System.Drawing.Size(594, 58);
             this.metroPanel5.TabIndex = 1;
             this.metroPanel5.VerticalScrollbarBarColor = true;
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
@@ -333,22 +324,10 @@ namespace Production
             this.metroLabel2.TabIndex = 4;
             this.metroLabel2.Text = "Look For";
             // 
-            // new_bt
-            // 
-            this.new_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.new_bt.Location = new System.Drawing.Point(612, 83);
-            this.new_bt.Name = "new_bt";
-            this.new_bt.Size = new System.Drawing.Size(63, 23);
-            this.new_bt.Style = MetroFramework.MetroColorStyle.Red;
-            this.new_bt.TabIndex = 4;
-            this.new_bt.Text = "Add New";
-            this.new_bt.UseSelectable = true;
-            this.new_bt.Click += new System.EventHandler(this.new_bt_Click);
-            // 
             // find_bt
             // 
             this.find_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.find_bt.Location = new System.Drawing.Point(454, 83);
+            this.find_bt.Location = new System.Drawing.Point(427, 16);
             this.find_bt.Name = "find_bt";
             this.find_bt.Size = new System.Drawing.Size(63, 23);
             this.find_bt.Style = MetroFramework.MetroColorStyle.Red;
@@ -360,7 +339,7 @@ namespace Production
             // clear_bt
             // 
             this.clear_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clear_bt.Location = new System.Drawing.Point(523, 83);
+            this.clear_bt.Location = new System.Drawing.Point(496, 16);
             this.clear_bt.Name = "clear_bt";
             this.clear_bt.Size = new System.Drawing.Size(83, 23);
             this.clear_bt.Style = MetroFramework.MetroColorStyle.Red;
@@ -368,6 +347,18 @@ namespace Production
             this.clear_bt.Text = "Clear/Refresh";
             this.clear_bt.UseSelectable = true;
             this.clear_bt.Click += new System.EventHandler(this.clear_bt_Click);
+            // 
+            // new_bt
+            // 
+            this.new_bt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.new_bt.Location = new System.Drawing.Point(612, 83);
+            this.new_bt.Name = "new_bt";
+            this.new_bt.Size = new System.Drawing.Size(63, 23);
+            this.new_bt.Style = MetroFramework.MetroColorStyle.Red;
+            this.new_bt.TabIndex = 4;
+            this.new_bt.Text = "Add New";
+            this.new_bt.UseSelectable = true;
+            this.new_bt.Click += new System.EventHandler(this.new_bt_Click);
             // 
             // metroGrid1
             // 
@@ -382,24 +373,24 @@ namespace Production
             this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.metroGrid1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.metroGrid1.ContextMenuStrip = this.metroContextMenu1;
             this.metroGrid1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle5;
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -408,14 +399,14 @@ namespace Production
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.ReadOnly = true;
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(17)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(19)))), ((int)(((byte)(73)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.metroGrid1.RowHeadersWidth = 30;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -622,6 +613,7 @@ namespace Production
             this.label2.Style = MetroFramework.MetroColorStyle.Red;
             this.label2.TabIndex = 67;
             this.label2.Text = "%";
+            this.label2.Visible = false;
             // 
             // metroProgressBar1
             // 
@@ -633,6 +625,20 @@ namespace Production
             this.metroProgressBar1.Style = MetroFramework.MetroColorStyle.Red;
             this.metroProgressBar1.TabIndex = 68;
             // 
+            // export_tx
+            // 
+            this.export_tx.BackgroundImage = global::Production.Properties.Resources.excel__Custom_1;
+            this.export_tx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.export_tx.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.export_tx.Location = new System.Drawing.Point(298, 22);
+            this.export_tx.Name = "export_tx";
+            this.export_tx.Size = new System.Drawing.Size(32, 32);
+            this.export_tx.TabIndex = 132;
+            this.toolTip1.SetToolTip(this.export_tx, "Click here To Export Data to Excel");
+            this.export_tx.UseSelectable = true;
+            this.export_tx.Visible = false;
+            this.export_tx.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
             // website_bt
             // 
             this.website_bt.BackgroundImage = global::Production.Properties.Resources.administrator_icon;
@@ -642,30 +648,57 @@ namespace Production
             this.website_bt.Name = "website_bt";
             this.website_bt.Size = new System.Drawing.Size(40, 32);
             this.website_bt.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.website_bt, "Click here To Open WebSite ");
             this.website_bt.UseSelectable = true;
             this.website_bt.Click += new System.EventHandler(this.metroButton1_Click);
             // 
-            // Export_bt
+            // youtube_bt
             // 
-            this.Export_bt.BackgroundImage = global::Production.Properties.Resources.YouTube_icon__2013_2017_;
-            this.Export_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Export_bt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Export_bt.Location = new System.Drawing.Point(190, 22);
-            this.Export_bt.Name = "Export_bt";
-            this.Export_bt.Size = new System.Drawing.Size(56, 32);
-            this.Export_bt.TabIndex = 1;
-            this.Export_bt.UseSelectable = true;
-            this.Export_bt.Click += new System.EventHandler(this.Export_bt_Click);
+            this.youtube_bt.BackgroundImage = global::Production.Properties.Resources.YouTube_icon__2013_2017_;
+            this.youtube_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.youtube_bt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.youtube_bt.Location = new System.Drawing.Point(190, 22);
+            this.youtube_bt.Name = "youtube_bt";
+            this.youtube_bt.Size = new System.Drawing.Size(56, 32);
+            this.youtube_bt.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.youtube_bt, "Click here To Open Youtube Channel");
+            this.youtube_bt.UseSelectable = true;
+            this.youtube_bt.Click += new System.EventHandler(this.Export_bt_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton2.Location = new System.Drawing.Point(875, 83);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(89, 23);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton2.TabIndex = 72;
+            this.metroButton2.Text = "Restore";
+            this.metroButton2.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // FrmProList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.export_tx);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.metroProgressBar1);
             this.Controls.Add(this.website_bt);
-            this.Controls.Add(this.Export_bt);
+            this.Controls.Add(this.youtube_bt);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.metroPanel1);
             this.Name = "FrmProList";
@@ -722,18 +755,22 @@ namespace Production
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel10;
-        private MetroFramework.Controls.MetroButton Export_bt;
+        private MetroFramework.Controls.MetroButton youtube_bt;
         private MetroFramework.Controls.MetroButton website_bt;
         private MetroFramework.Controls.MetroDateTime dateTimePicker2;
         private MetroFramework.Controls.MetroDateTime dateTimePicker1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel12;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel13;
-        private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroLabel label2;
         private MetroFramework.Controls.MetroProgressBar metroProgressBar1;
         private MetroFramework.Controls.MetroButton update_bt;
         private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton export_tx;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }
 

@@ -54,6 +54,9 @@ namespace Production
         
         private void Form1_Load(object sender, EventArgs e)
         {
+            metroComboBox1.SelectedIndex = 1;
+            Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
+            this.Icon = Icon.FromHandle(bm.GetHicon());
             if (Properties.Settings.Default.web == "1")
             {
                 Process.Start("https://www.youtube.com/watch?v=y42-42xOUcE&list=PLUEc1Fx_1bPe1ddwDF799WKCmrMeCdgFo&index=5");
@@ -75,19 +78,18 @@ namespace Production
             //}
 
 
-            metroComboBox1.SelectedIndex = 1;
-            Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
-            this.Icon = Icon.FromHandle(bm.GetHicon());
+           
           
-            ToolTip t = new ToolTip();
-            t.SetToolTip(Export_bt, "Click here To Open Youtube Channel");
-            t.SetToolTip(Export_bt, "Click here To Open WebSite Channel");
+            //ToolTip t = new ToolTip();
+            //t.SetToolTip(youtube_bt, "Click here To Open Youtube Channel");
+            //t.SetToolTip(website_bt, "Click here To Open WebSite Channel");
+            //t.SetToolTip(export_tx, "Click here To Export Data to Excel");
             Loaddata(); 
            // dateTimePicker1.MaxDate = new DateTime(2022, 3, 31);
            // dateTimePicker1.MinDate = new DateTime(2021, 3, 31);
            // dateTimePicker2.MaxDate = new DateTime(2022, 3, 31);
            // dateTimePicker2.MinDate = new DateTime(2021, 3, 31);
-            this.WindowState = FormWindowState.Maximized;
+          //  this.WindowState = FormWindowState.Maximized;
        
             if(Properties.Settings.Default.newupdateinfo != Properties.Settings.Default.oldupdateinfo)
             {
@@ -309,7 +311,6 @@ namespace Production
                     {
                         using (DataTable ds = new DataTable())
                         {
-
                            adp.Fill(ds);
                             metroGrid1.DataSource = ds;
                             if (metroGrid1.Rows.Count == 0)
@@ -679,6 +680,7 @@ namespace Production
         }
         private async void down()
         {
+            label2.Visible = true;
             checkdrive();
             using (System.IO.FileStream fs = System.IO.File.Create(drive+"DSProductionSetup.msi")) ;
             metroProgressBar1.Visible = true;
@@ -700,6 +702,7 @@ namespace Production
             metroProgressBar1.Visible = false;
             System.Diagnostics.Process.Start(drive);
             System.Diagnostics.Process.Start(drive + "DSProductionSetup.msi");
+            label2.Visible = false;
             Application.Exit();
         }
 
@@ -709,6 +712,80 @@ namespace Production
             f2.ShowDialog();
         }
 
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+           
+            {
+                if (metroGrid1.Rows.Count > 0)
+                {
+                    try
+                    {
+                        SaveFileDialog sfd = new SaveFileDialog();
+                        sfd.Filter = "Excel (*.xls)|*.xls";
+                        sfd.FileName = "PRODUCTIONList+" + dateTimePicker1.Value.ToString("dd.MM.yyyy") + ".xls";
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            // Bind Grid Data to Datatable
+                            DataTable dt = new DataTable();
+
+                            foreach (DataGridViewColumn col in metroGrid1.Columns)
+                            {
+                                dt.Columns.Add(col.HeaderText);//, col.ValueType);
+                            }
+                            int count = 0;
+                            foreach (DataGridViewRow row in metroGrid1.Rows)
+                            {
+                                if (count < metroGrid1.Rows.Count)
+                                {
+                                    dt.Rows.Add();
+                                    foreach (DataGridViewCell cell in row.Cells)
+                                    {
+                                        dt.Rows[dt.Rows.Count - 1][cell.ColumnIndex] = cell.Value.ToString();
+                                    }
+                                }
+                                count++;
+                            }
+                            string filename = sfd.FileName;
+
+                            StreamWriter wr = new StreamWriter(sfd.FileName);
+                            // Write Columns to excel file
+                            for (int i = 0; i < dt.Columns.Count; i++)
+                            {
+                                wr.Write(dt.Columns[i].ToString().ToUpper() + "\t");
+                            }
+                            wr.WriteLine();
+                            //write rows to excel file
+                            for (int i = 0; i < (dt.Rows.Count); i++)
+                            {
+                                for (int j = 0; j < dt.Columns.Count; j++)
+                                {
+                                    if (dt.Rows[i][j] != null)
+                                    {
+                                        wr.Write(Convert.ToString(dt.Rows[i][j]) + "\t");
+                                    }
+                                    else
+                                    {
+                                        wr.Write("\t");
+                                    }
+                                }
+                                wr.WriteLine();
+                            }
+                            wr.Close();
+                            MetroFramework.MetroMessageBox.Show(this, "Data Exported Successfully. to Path. :" + sfd.FileName + " ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //  System.Diagnostics.Process.Start(sfd.FileName);
+
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MetroFramework.MetroMessageBox.Show(this, ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                }
+            }
+
+        }
        
     }
 }
