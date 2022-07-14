@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -124,60 +124,15 @@ namespace Production
             System.Diagnostics.Process.Start(drive + "DSProductionSetup.msi");
             Application.Exit();
         }
-        private void newupdate()
-        {
-            try
-            {
-                var csb = new MySqlConnectionStringBuilder
-                {
-                    Server = "34.122.12.194",
-                    UserID = "test_remote",
-                    Password = "Secure1234!",
-                    Database = "companylist",
-                    //SslCert = @"C:\Report\client-cert.pem",
-                    //SslKey = @"C:\Report\client-key.pem",
-                    //SslCa = @"C:\Report\server-ca.pem",
-                    //SslMode = MySqlSslMode.VerifyCA,
-                };
-                using (MySqlConnection con = new MySqlConnection(csb.ConnectionString))
-                {
-                    string savedetail = "SELECT * FROM `dsproduction`  ";
-                    using (MySqlCommand MyCommand2 = new MySqlCommand(savedetail, con))
-                    {
-                        MyCommand2.CommandType = CommandType.Text;
-                        using (MySqlDataAdapter adp = new MySqlDataAdapter(MyCommand2))
-                        {
-                            using (DataTable ds = new DataTable())
-                            {
-                                con.Open();
-                                adp.Fill(ds);
-                                if (con.State == ConnectionState.Open)
-                                {
-                                    if (ds.Rows[0]["newupdateinfo"].ToString() != "")
-                                    {
-                                        Properties.Settings.Default.newupdateinfo = ds.Rows[0]["newupdateinfo"].ToString();
-                                        Properties.Settings.Default.Save();
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-               // MetroFramework.MetroMessageBox.Show(this, "Internet is not Conected for News And Update .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        
         private void FrmLogIn_Load(object sender, EventArgs e)
         {
-            newupdate();
+         //   newupdate();
             checkupdate();
            // metroDateTime1.Value = new DateTime(2022,3,31);
             Bitmap bm = new Bitmap(Properties.Resources.administrator_icon);
             this.Icon = Icon.FromHandle(bm.GetHicon());
-            //if(metroDateTime2.Value <= metroDateTime1.Value) 
+          //  if(metroDateTime2.Value <= metroDateTime1.Value) 
             {
                 loadagain();
             }

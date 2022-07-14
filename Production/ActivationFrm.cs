@@ -58,7 +58,7 @@ namespace Production
                                 string rslt = year.ToString()+"N" + mnts.ToString() + "U" + hour.ToString() + "Y" + day_in_month.ToString() + "T" + day_in_year.ToString() + "R" + Month.ToString()  +"J" ;
                                 Properties.Settings.Default.SystemCode = rslt;
                                
-                                int otp = day_in_month * Month * year*day_in_year;
+                                int otp = day_in_month * Month * year * day_in_year;
                                 Properties.Settings.Default.ActivationKey = otp.ToString();
                                 Properties.Settings.Default.Save();
                                 system_code.Text = Properties.Settings.Default.SystemCode;
